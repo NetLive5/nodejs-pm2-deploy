@@ -16,7 +16,7 @@ module.exports = {
       ref: "origin/master",
       repo: "git@github.com:NetLive5/nodejs-pm2-deploy.git",
       path: "/home/praktikum/nodejs-pm2-deploy",
-      "pre-deploy": `scp -i ~/.ssh/id_ed25519 backend/.env praktikum@158.160.100.179:/home/praktikum/nodejs-pm2-deploy/current/backend/.env`,
+      "pre-deploy": `scp backend/.env prod-server:/home/praktikum/nodejs-pm2-deploy/current/backend/.env`,
 
       "post-deploy":
         "cd current/backend && npm ci && npm run build && pm2 reload ecosystem.config.js --env production",
