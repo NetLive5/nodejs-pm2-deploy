@@ -12,7 +12,7 @@ module.exports = {
     production: {
       user: "praktikum",
       host: "158.160.100.179",
-      ref: "origin/main",
+      ref: "origin/master",
       repo: "git@github.com:NetLive5/nodejs-pm2-deploy.git",
       path: "/home/praktikum/nodejs-pm2-deploy",
       "post-deploy":
