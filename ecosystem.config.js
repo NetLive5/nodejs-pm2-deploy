@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "mesto",
-      script: "./backend/dist/app.js",
+      script: "backend/dist/app.js",
       env_production: {
         NODE_ENV: "production",
       },
@@ -15,8 +15,9 @@ module.exports = {
       ref: "origin/master",
       repo: "git@github.com:NetLive5/nodejs-pm2-deploy.git",
       path: "/home/praktikum/nodejs-pm2-deploy",
+      "pre-deploy-local": "",
       "post-deploy":
-        "cd backend && npm ci && npm run build && pm2 reload ecosystem.config.js --env production",
+        "cd current/backend && npm ci && npm run build && pm2 reload ecosystem.config.js --env production",
     },
   },
 };
