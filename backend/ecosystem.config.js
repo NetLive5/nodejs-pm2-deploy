@@ -18,7 +18,7 @@ module.exports = {
       path: "/home/praktikum/nodejs-pm2-deploy",
 
       "post-deploy":
-        "cd backend && npm ci && npm run build && pm2 reload ../ecosystem.config.js --env production",
+        "cd backend && npm ci && npm run build && pm2 reload ecosystem.config.js --env production",
     },
   },
 };
