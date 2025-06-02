@@ -46,6 +46,12 @@ app.use(cookieParser());
 app.post("/signin", validateUserBody, login);
 app.post("/signup", validateAuthentication, createUser);
 
+app.get("/crash-test", () => {
+  setTimeout(() => {
+    throw new Error("Сервер упал");
+  }, 0);
+});
+
 app.use(auth);
 app.use(routes);
 
