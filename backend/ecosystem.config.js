@@ -7,6 +7,10 @@ module.exports = {
       env_production: {
         NODE_ENV: "production",
       },
+      autorestart: true,
+      watch: false,
+      max_restarts: 10,
+      restart_delay: 5000,
     },
   ],
   deploy: {
