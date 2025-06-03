@@ -1,4 +1,11 @@
-require("dotenv").config({ path: "./.env.deploy" });
+require("dotenv").config({ path: "./backend/.env" });
+
+console.log("ENV DEBUG:", {
+  HOST: process.env.DEPLOY_HOST,
+  USER: process.env.DEPLOY_USER,
+  REPO: process.env.DEPLOY_REPO,
+  PATH: process.env.DEPLOY_PATH,
+});
 
 module.exports = {
   apps: [
