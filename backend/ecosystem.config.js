@@ -1,3 +1,5 @@
+require("dotenv").config({ path: "./.env.deploy" });
+
 module.exports = {
   apps: [
     {
@@ -15,11 +17,11 @@ module.exports = {
   ],
   deploy: {
     production: {
-      user: "praktikum",
-      host: "158.160.100.179",
+      user: process.env.DEPLOY_USER,
+      host: process.env.DEPLOY_HOST,
       ref: "origin/master",
-      repo: "git@github.com:NetLive5/nodejs-pm2-deploy.git",
-      path: "/home/praktikum/nodejs-pm2-deploy",
+      repo: process.env.DEPLOY_REPO,
+      path: process.env.DEPLOY_PATH,
 
       "post-deploy":
         "cd backend && npm ci && npm run build && pm2 reload ecosystem.config.js --env production",
