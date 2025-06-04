@@ -9,7 +9,7 @@ module.exports = {
       repo: process.env.DEPLOY_REPO,
       path: process.env.DEPLOY_PATH,
       "post-deploy":
-        "cd frontend && npm ci && NODE_OPTIONS=--openssl-legacy-provider npm run build && rsync -avz build/ /var/www/mesto",
+        "cd frontend && npm ci && source .env && NODE_OPTIONS=--openssl-legacy-provider npm run build && rsync -avz build/ /var/www/mesto",
     },
   },
 };
