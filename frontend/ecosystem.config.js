@@ -1,11 +1,13 @@
+require("dotenv").config({ path: "./frontend/.env" });
+
 module.exports = {
   deploy: {
     production: {
-      user: "praktikum",
-      host: "158.160.100.179",
+      user: process.env.DEPLOY_USER,
+      host: process.env.DEPLOY_HOST,
       ref: "origin/master",
-      repo: "git@github.com:NetLive5/nodejs-pm2-deploy.git",
-      path: "/home/praktikum/nodejs-pm2-deploy",
+      repo: process.env.DEPLOY_REPO,
+      path: process.env.DEPLOY_PATH,
       "post-deploy":
         "cd frontend && npm ci && NODE_OPTIONS=--openssl-legacy-provider npm run build && rsync -avz build/ /var/www/mesto",
     },
